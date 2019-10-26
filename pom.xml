@@ -5,7 +5,7 @@
 
     <groupId>com.jfeat</groupId>
     <artifactId>crud-core</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <packaging>jar</packaging>
 
     <name>SpringBoot-Framework-CRUD-CORE</name>
@@ -18,12 +18,12 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-
     <properties>
         <mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
         <mybatisplus.version>2.1.9</mybatisplus.version>
         <fastjson.version>1.2.31</fastjson.version>
         <druid.version>1.0.28</druid.version>
+        <swagger.version>2.5.0</swagger.version>
     </properties>
 
     <dependencies>
@@ -31,12 +31,23 @@
             <groupId>com.jfeat</groupId>
             <artifactId>crud-base</artifactId>
             <version>0.0.1</version>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.47</version>
+            <version>1.2.52</version>
+        </dependency>
+
+        <!--swagger依赖-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger.version}</version>
         </dependency>
 
         <!--spring boot依赖-->
@@ -113,5 +124,5 @@
             <url>http://120.79.49.72:8081/repository/internal</url>
         </repository>
     </repositories>
-    
+
 </project>
