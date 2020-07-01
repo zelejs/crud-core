@@ -19,6 +19,7 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 
 import javax.validation.ConstraintViolationException;
 import java.lang.reflect.UndeclaredThrowableException;
+import java.util.List;
 
 /**
  * 全局的的异常拦截器（拦截所有的控制器）（带有@RequestMapping注解的方法上都会拦截）
@@ -79,8 +80,13 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public ErrorTip beanValidation(MethodArgumentNotValidException e) {
         ErrorTip errorTip = new ErrorTip(BusinessCode.BadRequest);
-        for (FieldError error : e.getBindingResult().getFieldErrors()) {
+        List<FieldError> fieldErrors = e.getBindingResult().getFieldErrors();
+        for (FieldError error : fieldErrors) {
             errorTip.add(error.getField(), error.getDefaultMessage());
+        }
+        //将第一个报错放到message中
+        if(fieldErrors.size()>0){
+            errorTip.setMessage(fieldErrors.get(0).getDefaultMessage());
         }
         return errorTip;
     }
