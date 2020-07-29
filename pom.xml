@@ -23,7 +23,7 @@
         <mybatisplus.version>2.1.9</mybatisplus.version>
         <fastjson.version>1.2.52</fastjson.version>
         <druid.version>1.0.28</druid.version>
-        <mysql.connector.version>8.0.15</mysql.connector.version>
+        <mysql.connector.version>8.0.16</mysql.connector.version>
         <!--<swagger.version>2.5.0</swagger.version>-->
     </properties>
 
