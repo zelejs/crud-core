@@ -21,9 +21,10 @@
     <properties>
         <mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
         <mybatisplus.version>2.1.9</mybatisplus.version>
-        <fastjson.version>1.2.31</fastjson.version>
+        <fastjson.version>1.2.52</fastjson.version>
         <druid.version>1.0.28</druid.version>
-        <swagger.version>2.5.0</swagger.version>
+        <mysql.connector.version>8.0.15</mysql.connector.version>
+        <!--<swagger.version>2.5.0</swagger.version>-->
     </properties>
 
     <dependencies>
@@ -35,11 +36,22 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.52</version>
+            <version>${fastjson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connector.version}</version> <!--old version 5.1.43-->
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>${druid.version}</version>
         </dependency>
 
         <!--swagger依赖-->
-        <dependency>
+        <!--<dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
             <version>${swagger.version}</version>
@@ -48,7 +60,7 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${swagger.version}</version>
-        </dependency>
+        </dependency>-->
 
         <!--spring boot依赖-->
         <dependency>
@@ -79,11 +91,8 @@
             <artifactId>mybatisplus-spring-boot-starter</artifactId>
             <version>${mybatisplus-spring-boot-starter.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-            <version>${druid.version}</version>
-        </dependency>
+
+        <!-- test -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -117,12 +126,12 @@
         </repository>
     </distributionManagement>
 
-    <repositories>
+    <!--<repositories>
         <repository>
             <id>archiva-internal</id>
             <name>Internal Repository</name>
             <url>http://120.79.49.72:8081/repository/internal</url>
         </repository>
-    </repositories>
+    </repositories>-->
 
 </project>
