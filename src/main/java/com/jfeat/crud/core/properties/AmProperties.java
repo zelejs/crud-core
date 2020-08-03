@@ -12,24 +12,33 @@ import org.springframework.util.StringUtils;
 public class AmProperties {
     public static final String PREFIX = "am";
     private String jsonSerializeDateFormat = "yyyy-MM-dd HH:mm:ss";
-    private Boolean kaptchaOpen = false;
-    private Boolean swaggerOpen = false;
-    private String fileUploadPath;
-    private String fileHost = "http://localhost:8080";
-    private Boolean haveCreatePath = false;
+    //private Boolean kaptchaOpen = false;
+    //private Boolean swaggerOpen = false;
+    //private String fileUploadPath;
+    //private String fileHost = "http://localhost:8080";
+    //private Boolean haveCreatePath = false;
+    @Deprecated
     private Integer workerId = 0;
+
+    // cache
     private String redisHost = "127.0.0.1";
     private int redisPort = 6379;
     private int redisTimeout;
-    private Boolean resetAdminPerms = true;
-    private String lbsBaiduKey;
-    private String lbsAmapKey;
-    private String lbsTencentKey;
     private Boolean shiroCacheRedis = false;
+    // lbs
+    //private String lbsBaiduKey;
+    //private String lbsAmapKey;
+    //private String lbsTencentKey;
+
+    @Deprecated
+    private Boolean resetAdminPerms = true;  // 实始化admin权限, 框架自动默认有所有权限
+
 
     public AmProperties() {
     }
 
+
+    /* lbs
     public String getLbsTencentKey() {
         return this.lbsTencentKey;
     }
@@ -53,7 +62,19 @@ public class AmProperties {
     public void setLbsBaiduKey(String lbsBaiduKey) {
         this.lbsBaiduKey = lbsBaiduKey;
     }
+     */
 
+    @Deprecated
+    public Integer getWorkerId() {
+        return this.workerId;
+    }
+
+    @Deprecated
+    public void setWorkerId(Integer workerId) {
+        this.workerId = workerId;
+    }
+
+    /* file upload
     public String getFileHost() {
         return this.fileHost;
     }
@@ -61,14 +82,7 @@ public class AmProperties {
     public void setFileHost(String fileHost) {
         this.fileHost = fileHost;
     }
-
-    public Boolean getShiroCacheRedis() {
-        return this.shiroCacheRedis;
-    }
-
-    public void setShiroCacheRedis(Boolean shiroCacheRedis) {
-        this.shiroCacheRedis = shiroCacheRedis;
-    }
+    */
 
     public String getRedisHost() {
         return this.redisHost;
@@ -94,14 +108,15 @@ public class AmProperties {
         this.redisTimeout = redisTimeout;
     }
 
-    public Integer getWorkerId() {
-        return this.workerId;
+    public Boolean getShiroCacheRedis() {
+        return this.shiroCacheRedis;
     }
 
-    public void setWorkerId(Integer workerId) {
-        this.workerId = workerId;
+    public void setShiroCacheRedis(Boolean shiroCacheRedis) {
+        this.shiroCacheRedis = shiroCacheRedis;
     }
 
+    /* file upload
     public String getFileUploadPath() {
         if (StringUtils.isEmpty(this.fileUploadPath)) {
             return "java.io.tmpdir";
@@ -123,7 +138,9 @@ public class AmProperties {
     public void setFileUploadPath(String fileUploadPath) {
         this.fileUploadPath = fileUploadPath;
     }
+    */
 
+    /*
     public Boolean getKaptchaOpen() {
         return this.kaptchaOpen;
     }
@@ -131,7 +148,9 @@ public class AmProperties {
     public void setKaptchaOpen(Boolean kaptchaOpen) {
         this.kaptchaOpen = kaptchaOpen;
     }
+    */
 
+    /*
     public Boolean getSwaggerOpen() {
         return this.swaggerOpen;
     }
@@ -139,6 +158,7 @@ public class AmProperties {
     public void setSwaggerOpen(Boolean swaggerOpen) {
         this.swaggerOpen = swaggerOpen;
     }
+     */
 
     public String getJsonSerializeDateFormat() {
         return this.jsonSerializeDateFormat;
@@ -148,10 +168,13 @@ public class AmProperties {
         this.jsonSerializeDateFormat = jsonSerializeDateFormat;
     }
 
+
+    @Deprecated
     public Boolean getResetAdminPerms() {
         return this.resetAdminPerms;
     }
 
+    @Deprecated
     public void setResetAdminPerms(Boolean resetAdminPerms) {
         this.resetAdminPerms = resetAdminPerms;
     }
