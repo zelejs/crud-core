@@ -1,9 +1,8 @@
 package com.jfeat.crud.core.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.baomidou.mybatisplus.enums.DBType;
-import com.baomidou.mybatisplus.plugins.OptimisticLockerInterceptor;
-import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.OptimisticLockerInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -39,11 +38,11 @@ public class MybatisPlusConfig {
         PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
         String driverClassName = this.druidProperties.getDriverClassName();
         if(driverClassName != null && driverClassName.contains("mysql")){
-            paginationInterceptor.setDialectType(DBType.MYSQL.getDb());
+            paginationInterceptor.setDialectType("mysql");
         }else if(driverClassName != null && driverClassName.contains("sqlserver")){
-            paginationInterceptor.setDialectType(DBType.SQLSERVER2005.getDb());
+            paginationInterceptor.setDialectType("sql-server");
         }else if (driverClassName != null && driverClassName.contains("h2")) {
-            paginationInterceptor.setDialectType(DBType.H2.getDb());
+            paginationInterceptor.setDialectType("h2");
         }
 
         return paginationInterceptor;
