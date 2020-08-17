@@ -5,7 +5,7 @@
 
     <groupId>com.jfeat</groupId>
     <artifactId>crud-core</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
     <packaging>jar</packaging>
 
     <name>SpringBoot-Framework-CRUD-CORE</name>
@@ -19,12 +19,12 @@
     </parent>
 
     <properties>
-        <mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
         <mybatisplus.version>3.3.0</mybatisplus.version>
         <fastjson.version>1.2.52</fastjson.version>
         <druid.version>1.0.28</druid.version>
         <mysql.connector.version>8.0.15</mysql.connector.version>
         <!--<swagger.version>2.5.0</swagger.version>-->
+        <mybatis-plus-boot-starter.version>3.3.0</mybatis-plus-boot-starter.version>
     </properties>
 
     <dependencies>
@@ -88,9 +88,14 @@
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>
-            <artifactId>mybatisplus-spring-boot-starter</artifactId>
-            <version>${mybatisplus-spring-boot-starter.version}</version>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis-plus-boot-starter.version}</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.baomidou</groupId>-->
+<!--            <artifactId>mybatisplus-spring-boot-starter</artifactId>-->
+<!--            <version>${mybatisplus-spring-boot-starter.version}</version>-->
+<!--        </dependency>-->
 
         <!-- test -->
         <dependency>
@@ -107,8 +112,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>11</source>
+                    <target>11</target>
                 </configuration>
             </plugin>
             <plugin>
